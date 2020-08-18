@@ -3,14 +3,7 @@
 # The method should return false otherwise.
 
 def adult_in_group?(people)
-
-    people.each do |person|
-        if person[:age] >= 18
-            return true
-        end
-    end
-
-    return false
+    people.one? { |person| true if person[:age] >= 18}
 end
 
 people_1 = [
