@@ -8,13 +8,9 @@ def coprime?(num1, num2)
     smallest_num = num1
     smallest_num = num2 if num2 < num1
     
-    (2..smallest_num).each do |num|
-        if num1 % num == 0 && num2 % num == 0
-            return false
-        end
-    end
+    (2..smallest_num).none?{ |num| num1 % num == 0 && num2 % num == 0 }
 
-    return true
+    
     
 end
 
