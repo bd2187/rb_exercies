@@ -2,10 +2,7 @@
 # and returns the sum of all numbers in the array.
 
 def multi_dimensional_sum(arr)
-    flattened_arr = arr.flatten!
-    flattened_arr.reduce(0) do |acc, num|
-        acc += num
-    end
+    arr.flatten.sum
 end
 
 arr_1 = [
