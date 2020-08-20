@@ -4,11 +4,7 @@
 # is passed in, then 5 should be used as the length.
 
 def filter_lengths(strings, length = 5)
-    strings.reduce([]) do |accumulator, string|
-        accumulator.push(string) if string.length >= length
-
-        accumulator
-    end
+    strings.select {|string| string.length >= length}    
 end
 
 
