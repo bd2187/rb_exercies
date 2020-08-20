@@ -19,5 +19,3 @@ p only_vowels?("aaoeee")  # => true
 p only_vowels?("iou")     # => true
 p only_vowels?("cat")     # => false
 p only_vowels?("over")    # => false
-
-
