@@ -7,7 +7,11 @@
 # to be the same before and after calling your method.
 
 def ele_replace!(array, hash)
+    array.map! do |key|
+        hash[key] || key
+    end
 
+    array
 end
 
 
