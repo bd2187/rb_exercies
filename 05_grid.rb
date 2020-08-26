@@ -3,6 +3,16 @@
 
 def grid(n, m)
 
+    arr = []
+
+    n.times do
+        sub_arr = []
+        m.times { || sub_arr << nil }
+        arr << sub_arr
+    end
+
+    arr
+
 end
 
 result_1 = grid(2, 3)
