@@ -12,6 +12,23 @@
 
 def my_rotate!(array, amt)
 
+    positive_amt = amt.abs
+
+    positive_amt.times do |i|
+        if amt > 0
+            item = array.shift
+            array.push(item)
+        else
+
+            item = array.pop
+            array.unshift(item)
+
+        end
+
+    end
+
+    array
+
 end
 
 
