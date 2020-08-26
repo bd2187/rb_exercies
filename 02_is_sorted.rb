@@ -3,20 +3,7 @@
 # Do not use the built-in Array#sort in your solution :)
 
 def is_sorted(arr)
-    # iterate through arr
-    # if current index is less than next index,
-    # continue iterating. otherwise, return false
-
-    i = 0
-    while i < arr.length - 1
-
-        if(arr[i] > arr[i + 1])
-            return false
-        end
-        i += 1
-    end
-
-    true
+    (0...arr.length - 1).all? { |i| arr[i] <= arr[i + 1]}
 end
 
 
