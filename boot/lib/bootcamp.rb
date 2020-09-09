@@ -13,6 +13,10 @@ class Bootcamp
         @name
     end
 
+    def grades
+        @grades
+    end
+
     def slogan
         @slogan
     end
@@ -57,22 +61,50 @@ class Bootcamp
         return false
     end
 
+    def student_to_teacher_ratio()
+        (@students.length / @teachers.length).round
+    end
+
+    def add_grade(student, grade)
+        if @students.include?(student)
+            @grades[student] << grade
+            true
+        else
+            false
+        end        
+    end
+
+    def num_grades(student)
+        @grades[student].length
+    end
+
+    def average_grade(student)
+
+        if !@students.include?(student) || @grades[student].length == 0
+            nil
+        else
+            sum_of_grades = @grades[student].inject(0){ |sum, grade| sum + grade }
+            avg = sum_of_grades / @grades[student].length
+            avg
+        end
+
+
+    end
+
 end
 
 bootcamp = Bootcamp.new("Map Academy", "Anyone can be a cartographer.", 6)
 
-# bootcamp.hire("Jeff")
-# bootcamp.hire("Matthias")
-# p bootcamp.teachers
+bootcamp.hire("Jeff")
+bootcamp.hire("Matthias")
 
-bootcamp.enroll("bob")
-bootcamp.enroll("john")
-bootcamp.enroll("jane")
-bootcamp.enroll("jill")
-bootcamp.enroll("tim")
-bootcamp.enroll("cheryl")
-# p bootcamp.enroll("steph")
-# p bootcamp
+bootcamp.enroll("Alice")
+bootcamp.add_grade("Alice", 100)
+bootcamp.add_grade("Alice", 75)
+p bootcamp.average_grade("Alice")
 
-p bootcamp.enrolled?("Jane")
-p bootcamp.enrolled?("Brandon")
+bootcamp.enroll("Bob")
+bootcamp.add_grade("Bob", 80)
+p bootcamp.average_grade("Bob")
+
+p bootcamp.average_grade('lexi')
