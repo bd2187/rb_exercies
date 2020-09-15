@@ -49,7 +49,21 @@ class Startup
             pay_employee(employee)
         end
     end
-    
+
+    def average_salary
+        
+        total_salary = 0
+        @employees.each do |employee|
+            total_salary += @salaries[employee.title]
+        end
+
+        total_salary / @employees.length
+    end
+
+    def close
+        @employees = []
+        @funding = 0
+    end    
 end
 
 salaries = {
@@ -72,7 +86,5 @@ startup_1.hire("Scooby", "CEO")
 startup_1.hire("Velma", "CTO")
 startup_1.hire("Daphne", "Software Engineer")
 startup_1.hire("Fred", "Software Engineer")
-startup_1.payday()
 
-p startup_1.employees
-p startup_1.funding
+startup_1.close()
